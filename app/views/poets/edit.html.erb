@@ -1,10 +1,11 @@
-<div class="contents row">
+<!-- <div class="contents row"> -->
   <%= form_with(model: @poet, local: true) do |f| %>
   <h3>
     編集する
   </h3>
   <%= f.label :image, "画像" %>
-  <%= f.text_field :image %>
+  <%= f.text_field :image, readonly: true %>
+  <%= f.file_field :image, type: :file %>
   <%= f.submit "SEND" %>
   <% end %>
-</div>
+<!-- </div> -->

@@ -1,4 +1,6 @@
 class PoetsController < ApplicationController
+  include CarrierwaveBase64Uploader
+
   before_action :move_to_index, except: [:index, :show]
 
   def index
@@ -33,9 +35,11 @@ class PoetsController < ApplicationController
     @comments = @poet.comments.includes(:user)
   end
 
+
+
   private
   def poet_params
-    params.require(:poet).permit(:image)
+    params.require(:poet).permit(:image, :image_cache)
   end
 
   def move_to_index
