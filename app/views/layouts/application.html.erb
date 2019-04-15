@@ -1,15 +1,35 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Myapp001</title>
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+<head>
+  <title>Myapp001</title>
+  <nav>
+    <div class="nav-wrapper">
+      <%= link_to 'Poeter Senryu', '/poets', class: "brand-logo" %>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li><%= link_to '詠む', '/poets/new', class: 'sample' %></li>
+        <% if user_signed_in? %>
+        <span><%= current_user.nickname %>
+            <li><%= link_to 'マイページ', "/users/#{current_user.id}" %></li>
+            <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete  %></li>
+        </span>
+        <% else %>
+        <li><%= link_to 'ログイン', new_user_session_path, class: 'post' %></li>
+        <li><%= link_to "新規登録", new_user_registration_path, class: 'post' %></li>
+        <% end %>
 
-  <body>
-    <%= yield %>
-  </body>
+      </ul>
+    </div>
+  </nav>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+</head>
+
+<body>
+  <%= yield %>
+</body>
+
 </html>
