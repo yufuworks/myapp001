@@ -3,6 +3,7 @@ class PoetsController < ApplicationController
 
   before_action :move_to_index, except: [:index, :show]
 
+
   def index
     @poets = Poet.includes(:user).page(params[:page]).per(5).order("created_at DESC")
   end
