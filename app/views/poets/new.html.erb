@@ -1,22 +1,15 @@
-<div class="contents row">
-    <div class="container">
-        <%= form_with(model: Poet, local: true) do |f| %>
-          <h3>
-            詠む
-          </h3>
-          <%= f.text_field :image, placeholder: "Image URL"%>
-          <%= f.submit "SEND" %>
-        <% end %>
-      </div>
-</div>
-<form action="#">
-    <div class="file-field input-field">
-      <div class="btn">
-        <span>File</span>
-        <input type="file">
-      </div>
-      <div class="file-path-wrapper">
-        <input class="file-path validate" type="text">
-      </div>
-    </div>
-  </form>
+<%= form_with(model: Poet.new, local: true) do |f| %>
+<!-- <div class="file-field input-field">
+  <div class="btn"> -->
+    <span>Image URL</span>
+    <%= f.file_field :image, type: :file %>
+  <!-- </div>
+</div> -->
+  <!-- <div class="file-path-wrapper"> -->
+    <%#= f.text_field :image, placeholder: "Image URL", class: "file-path validate" %>
+    <%#= f.file_field :image %>
+    <%#= submit_tag '送信' %>
+    <%#= f.hidden_field :image_cache %>
+    <%= f.submit "SEND" %>
+  <!-- </div> -->
+<% end %>

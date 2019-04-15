@@ -1,14 +1,15 @@
 <div class="col s12 m7">
   <div class="card horizontal">
     <div class="card-image">
-      <div class="content_post" style="background-image: url(<%= poet.image %>);">
-        <img src="https://lorempixel.com/100/190/nature/6">
+      <div class="content_post">
+        <%= image_tag "#{poet.image}" %>
       </div>
     </div>
     <div class="card-stacked">
       <div class="card-content">
         <span class="name"><%= poet.user.nickname %></span>
-        <p>I am a very simple card. I am good at containing small bits of information.</p>
+        <!--TODO 文字列操作実装場所 -->
+        <p><%= poet.image %></p>
       </div>
       <div class="card-action">
         <%= link_to '詳細', "/poets/#{poet.id}", method: :get %>
