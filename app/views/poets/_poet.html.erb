@@ -9,7 +9,7 @@
       <div class="card-content">
         <span class="name"><%= poet.user.nickname %></span>
         <!--TODO 文字列操作実装場所 -->
-        <p><%= poet.image %></p>
+        <p class="senryu"><%= make_poet(poet.image, poet.id ,poet.user_id) %></p>
       </div>
       <div class="card-action">
         <%= link_to '詳細', "/poets/#{poet.id}", method: :get %>
